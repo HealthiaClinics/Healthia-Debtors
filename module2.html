@@ -1,0 +1,80 @@
+/* ============================================================
+   SITE ASSISTANT KNOWLEDGE BASE
+   ============================================================
+   Plain data — no AI, no API key, nothing that can leak. The
+   assistant only ever answers from what's in this array. To add
+   or correct an answer, edit an entry below (or add a new one)
+   and it applies across the whole site immediately.
+
+   keywords: extra search terms beyond what's already in q/a
+   ============================================================ */
+
+const SITE_KB = [
+  // --- Payment expectations & invoicing ---
+  {q:"What are the payment timeframes for each client type?",
+   a:"Private clients: at time of invoice, or within 7 days at the latest (no accounts should be offered). Private entities/corporate: 30 days. Third party payers (DVA, Medicare, NDIS, insurers, plan managers): 60 days if not paid via an online portal.",
+   keywords:"payment timeframe deadline how long private third party entity corporate"},
+  {q:"A private client couldn't pay before leaving — what do I do?",
+   a:"Print and email the invoice via Nookal, offer bank transfer/phone payment, and place an \"OUTSTANDING DEBT\" alert note on their client profile so other team members see it if they call to cancel their next appointment. Follow up by phone, SMS and email within 48 hours.",
+   keywords:"client left without paying unpaid didn't pay leave"},
+  {q:"How do I know if a claim has been rejected?",
+   a:"Check the online payment portal, the Nookal HICAPS Report, or the Ageing Debts Report. Rejections should be actioned promptly — resubmit via HICAPS Digital/Tyro or email, since an unaddressed rejection can become unrecoverable debt.",
+   keywords:"rejected claim hicaps rejection resubmit"},
+
+  // --- Ageing debt follow-up ---
+  {q:"What actually changes at each ageing bucket (0–30, 31–60, 61–90, 90+)?",
+   a:"The urgency and formality increase. 0–30 is a standard reminder and 48-hour follow-up. 31–60 adds a phone call and clear follow-up notes. 61–90 uses a FINAL NOTICE email/call and an alert note. 90+ requires a recoverable/unrecoverable determination — if unrecoverable, it moves to the Doubtful Debt Write-Off process.",
+   keywords:"ageing bucket 0-30 31-60 61-90 90+ days overdue timeline"},
+  {q:"Which email template do I use?",
+   a:"Reminder template for 0–30 days, Further Reminder for 30–60 days, and Final Notice for 61–90 and 90+ days. Templates are in the full SOP — don't freelance the wording, especially for Final Notice, since it references potential referral to a debt collection agency.",
+   keywords:"email template reminder final notice wording"},
+  {q:"How often should I run the Ageing Debts Report, and how should I export it?",
+   a:"Run it regularly (weekly at minimum) from Reports → Ageing Debts. Export as XLSX rather than CSV if you plan to add notes — CSV does not retain anything you add after export.",
+   keywords:"ageing debts report export csv xlsx how often run"},
+  {q:"I can't identify a deposit in the bank account — what do I do?",
+   a:"Complete an Inter Clinic Transfer for money that doesn't relate to your clinic, or contact your Finance/Operations Business Partner to request the Inter Clinic Transfer form if you can't identify it at all.",
+   keywords:"unidentified deposit inter clinic transfer bank"},
+
+  // --- Doubtful debt write-offs ---
+  {q:"When does a debt qualify as \"doubtful\"?",
+   a:"Generally 90–120+ days overdue from an unresponsive debtor despite repeated recovery attempts, where a debt collection agency is unlikely to recover it, or where a third party payer has formally rejected the claim. The clinic must also be profitable for a write-off to proceed.",
+   keywords:"doubtful debt criteria qualify write off"},
+  {q:"What's the approval process and thresholds for doubtful debt write-offs?",
+   a:"Clinic identifies doubtful debtors from the 90+ day column, saves the file as \"Doubtful Debtors – COST CODE – MONTH\" (XLSX), and sends it to the Clinic Partner/Team Leader for approval, then to the Regional Partner. Under $1,000 → Regional Partner can approve. $1,000–$5,000 → General Manager approval required. Over $5,000 → CFO approval required.",
+   keywords:"approval threshold write off amount who approves cfo general manager regional partner limit"},
+  {q:"How often are write-offs submitted?",
+   a:"Monthly. Don't let doubtful debtors stockpile — timely submission keeps each clinic's reported debt position accurate and avoids P&L surprises.",
+   keywords:"how often write off submitted monthly frequency"},
+  {q:"How do I actually process the write-off in Nookal once approved?",
+   a:"Open the invoice → click the item → Adjust Total → enter $0 → Reason \"WRITE OFF\" → Save.",
+   keywords:"process write off nookal steps adjust total"},
+
+  // --- Nookal invoice adjustments ---
+  {q:"What's the lock period for invoice adjustments?",
+   a:"One business day. Invoices from Friday, Saturday or Sunday can't be backdated or voided after 11:59pm the following Monday. After the lock period, some fields remain editable (payer, case, addressee, code, description, total, payment method) but you can't add items, void, backdate, or change the provider — these all affect revenue reporting for a prior period.",
+   keywords:"lock period invoice adjustment backdate void editable"},
+  {q:"I need a change that isn't possible through the standard adjustment options — what now?",
+   a:"Submit a ticket via ASSIST (Category: Nookal – Invoice Amendments) with the invoice number and details of the change required. If it involves backdating revenue outside the period, Finance will review to confirm clinic and clinician billing incentives stay correct.",
+   keywords:"assist ticket invoice amendment cannot adjust locked"},
+
+  // --- Roles & ownership ---
+  {q:"Whose KPI is debt management, really?",
+   a:"It sits at the clinic level with the Practice Manager and Clinic Partner/Team Leader — it's an explicit performance indicator, and mismanagement flows straight through to revenue reporting and P&L.",
+   keywords:"whose responsibility kpi ownership accountable"},
+  {q:"What if the primary person responsible for reconciliation or debt follow-up goes on leave?",
+   a:"The role must be delegated to someone else for that period — accounts receivable and debt follow-up can't pause just because one person is away.",
+   keywords:"leave delegate responsibility away holiday"},
+
+  // --- Daily reconciliation (cheat sheet content) ---
+  {q:"What are the 5 steps of daily bank reconciliation?",
+   a:"1) Download bank transactions from the clinic account. 2) Match HICAPS/EFTPOS + other deposits to remittances → receipt in Nookal (date = day receipted, not day received). 3) Make invoice adjustments per the Nookal Invoice Adjustments Guide if needed. 4) Complete an Inter Clinic Transfer for any deposits that aren't yours. 5) Run the Nookal Banking Report and confirm it matches the bank total.",
+   keywords:"daily bank reconciliation 5 steps how to reconcile"},
+  {q:"What date do I use when receipting a payment in Nookal?",
+   a:"Date it as the day you receipt it in Nookal — not the day it hit the bank. If there's a delay, add a note: \"received in bank [date]\".",
+   keywords:"receipt date payment when bank delay"},
+
+  // --- Training / site navigation ---
+  {q:"Which training module should I do?",
+   a:"All Admin Team → Module 1. Trained Admin/Practice Manager → Module 2. Clinic Partner, CCS or Clinic Manager → Module 3.",
+   keywords:"which module role training start"},
+];
