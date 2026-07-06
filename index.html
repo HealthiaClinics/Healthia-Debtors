@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debtor Management | Healthia</title>
+<style>
+  :root{--navy:#1B4F8C;--teal:#028090;--gold:#E8A800;--purple:#7D3C98;--red:#C0392B;--green:#1E8449;--dark:#1C2B3A;--grey:#6B7C8E;--lgrey:#D6E0EB;--offwh:#F4F6F9;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:var(--offwh);color:var(--dark);}
+  .site-header{background:var(--navy);color:#fff;box-shadow:0 2px 12px rgba(0,0,0,.25);}
+  .site-header-inner{display:flex;align-items:center;padding:16px 28px;border-left:6px solid var(--teal);}
+  .site-header-inner h1{font-size:1.15rem;font-weight:700;}
+  .site-header-inner span{font-size:.82rem;color:#A8D4DF;display:block;margin-top:2px;}
+  .top-tabs{background:#162e52;display:flex;overflow-x:auto;padding:0 28px;}
+  .top-tab{background:none;border:none;color:#7fa8c9;font-size:.85rem;font-weight:700;padding:14px 20px;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;}
+  .top-tab:hover{color:#fff;}
+  .top-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+  main{max-width:980px;margin:0 auto;padding:32px 20px 80px;}
+  .tabpanel{display:none;}
+  .tabpanel.active{display:block;animation:fadeIn .3s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+  h2.page-title{color:var(--navy);font-size:1.6rem;margin-bottom:8px;}
+  .sub{color:var(--grey);font-size:.92rem;line-height:1.6;margin-bottom:24px;max-width:720px;}
+
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+  .card{background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.07);padding:20px;border-top:5px solid var(--teal);text-decoration:none;color:inherit;display:block;transition:.15s;}
+  .card:hover{box-shadow:0 6px 18px rgba(0,0,0,.13);transform:translateY(-2px);}
+  .card.purple{border-top-color:var(--purple);}
+  .card .ci{font-size:1.6rem;margin-bottom:8px;}
+  .card h3{font-size:1rem;color:var(--dark);margin-bottom:6px;}
+  .card p{font-size:.82rem;color:var(--grey);line-height:1.5;}
+  .card .tag{display:inline-block;margin-top:10px;font-size:.68rem;font-weight:800;letter-spacing:.05em;padding:3px 9px;border-radius:10px;background:var(--offwh);color:var(--teal);}
+  .card .tag.locked{background:#f3e8f7;color:var(--purple);}
+
+  .resource-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;}
+  .resource-card{flex:1;min-width:240px;background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.07);padding:20px;border-left:5px solid var(--navy);}
+  .resource-card h3{color:var(--navy);font-size:1rem;margin-bottom:6px;}
+  .resource-card p{font-size:.85rem;color:var(--grey);margin-bottom:12px;line-height:1.5;}
+  .btn-link{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-size:.82rem;font-weight:700;padding:9px 16px;border-radius:6px;}
+  .btn-link:hover{background:#153d70;}
+  .btn-link.secondary{background:var(--offwh);color:var(--navy);border:1px solid var(--lgrey);}
+
+  .overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;}
+  @media(max-width:700px){.overview-grid{grid-template-columns:1fr;}}
+  .stat-card{background:#fff;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+  .stat-card h4{font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px;}
+  .stat-card ul{padding-left:18px;}
+  .stat-card li{font-size:.86rem;margin-bottom:5px;line-height:1.5;}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header-inner">
+    <div><h1>Healthia Accounts Receivable &amp; Debt Management</h1><span>SOP · FAQ · Cheat Sheets · Role-Based Training</span></div>
+  </div>
+  <div class="top-tabs" id="topTabs"></div>
+</header>
+<main>
+
+  <div class="tabpanel active" id="tab-overview">
+    <h2 class="page-title">Welcome</h2>
+    <p class="sub">This is the home for everything related to debtor management across the network — the policy, quick references, and role-based training. Pick a tab above, or jump straight into your training module below.</p>
+    <div class="overview-grid">
+      <div class="stat-card">
+        <h4>Why this matters</h4>
+        <ul>
+          <li>Debt management is a key performance measure for every clinic</li>
+          <li>Every role has a specific, defined responsibility in the process</li>
+          <li>Consistent process = faster recovery and fewer doubtful debts</li>
+        </ul>
+      </div>
+      <div class="stat-card">
+        <h4>Where to start</h4>
+        <ul>
+          <li>New to this? Start with the <b>SOP</b> tab for the full policy</li>
+          <li>Need a quick answer? Check the <b>FAQ</b> tab</li>
+          <li>Ready to train? Go to the <b>Training</b> tab and find your role</li>
+        </ul>
+      </div>
+    </div>
+    <div class="resource-row">
+      <div class="resource-card">
+        <h3>📋 Full SOP</h3>
+        <p>The complete Accounts Receivable &amp; Debt Management Policy and Procedure document.</p>
+        <a class="btn-link" href="sop/AR-Debt-Management-SOP.pdf" target="_blank">Open SOP (PDF)</a>
+      </div>
+      <div class="resource-card">
+        <h3>🎓 Start Training</h3>
+        <p>Role-based training modules with quizzes — takes 15–20 minutes per module.</p>
+        <a class="btn-link" href="#" onclick="showTab('training');return false;">Go to Training</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabpanel" id="tab-sop">
+    <h2 class="page-title">Accounts Receivable &amp; Debt Management SOP</h2>
+    <p class="sub">The full policy and procedure document. Use this as the source of truth — the cheat sheets and FAQ are quick references drawn from it.</p>
+    <div class="resource-card" style="max-width:420px;">
+      <h3>📋 Full SOP (PDF)</h3>
+      <p>Opens in a new tab using your browser's own PDF viewer — more reliable across different computers than viewing it embedded on the page.</p>
+      <a class="btn-link" href="sop/AR-Debt-Management-SOP.pdf" target="_blank">Open SOP (PDF)</a>
+    </div>
+  </div>
+
+  <div class="tabpanel" id="tab-faq">
+    <h2 class="page-title">FAQ &amp; Cheat Sheets</h2>
+    <p class="sub">Quick references for day-to-day use — pick whichever fits what you need right now.</p>
+    <div class="resource-row">
+      <div class="resource-card">
+        <h3>❓ FAQ</h3>
+        <p>Common questions across payments, ageing debt follow-up, doubtful debt write-offs, and Nookal invoice adjustments.</p>
+        <a class="btn-link" href="faq.html">Open FAQ</a>
+      </div>
+      <div class="resource-card">
+        <h3>📝 Cheat Sheets</h3>
+        <p>One-page quick reference per role — All Admin, Trained Admin/PM, and Clinic Partner/CCS/CM.</p>
+        <a class="btn-link" href="cheatsheet.html">Open Cheat Sheets</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabpanel" id="tab-training">
+    <h2 class="page-title">Role-Based Training</h2>
+    <p class="sub">Find your role below. Each module takes 15–20 minutes and ends with a short knowledge check and a completion record.</p>
+    <div class="card-grid">
+      <a class="card" href="modules/module1.html">
+        <div class="ci">🧾</div>
+        <h3>Module 1 — All Admin Team</h3>
+        <p>Payment expectations, invoicing, daily bank reconciliation, and 0–30 day follow-up.</p>
+        <span class="tag">OPEN TO ALL</span>
+      </a>
+      <a class="card purple" href="modules/module2-gate.html">
+        <div class="ci">📊</div>
+        <h3>Module 2 — Trained Admin &amp; PM</h3>
+        <p>The full ageing debt follow-up framework across every bucket, 0–90+ days.</p>
+        <span class="tag locked">🔒 ACCESS CODE REQUIRED</span>
+      </a>
+      <a class="card purple" href="modules/module3-gate.html">
+        <div class="ci">🏥</div>
+        <h3>Module 3 — Clinic Partner / CCS / CM</h3>
+        <p>Governance, KPI ownership, and your role in the doubtful debt approval chain.</p>
+        <span class="tag locked">🔒 ACCESS CODE REQUIRED</span>
+      </a>
+    </div>
+  </div>
+
+</main>
+<script>
+const tabs = [
+  {id:'overview', label:'Overview'},
+  {id:'sop', label:'SOP'},
+  {id:'faq', label:'FAQ & Cheat Sheet'},
+  {id:'training', label:'Training Modules'},
+];
+const tabsEl = document.getElementById('topTabs');
+tabs.forEach((t,i)=>{
+  const btn = document.createElement('button');
+  btn.className = 'top-tab' + (i===0?' active':'');
+  btn.textContent = t.label;
+  btn.onclick = ()=> showTab(t.id);
+  tabsEl.appendChild(btn);
+});
+function showTab(id){
+  document.querySelectorAll('.top-tab').forEach((b,i)=> b.classList.toggle('active', tabs[i].id===id));
+  document.querySelectorAll('.tabpanel').forEach(p=> p.classList.toggle('active', p.id === 'tab-'+id));
+  window.scrollTo(0,0);
+}
+// deep-link support: index.html#training
+if(location.hash){
+  const id = location.hash.replace('#','');
+  if(tabs.some(t=>t.id===id)) showTab(id);
+}
+</script>
+<script>
+/* ============================================================
+   SITE ASSISTANT KNOWLEDGE BASE
+   ============================================================
+   Plain data — no AI, no API key, nothing that can leak. The
+   assistant only ever answers from what's in this array. To add
+   or correct an answer, edit an entry below (or add a new one)
+   and it applies across the whole site immediately.
+
+   keywords: extra search terms beyond what's already in q/a
+   ============================================================ */
+
+const SITE_KB = [
+  // --- Payment expectations & invoicing ---
+  {q:"What are the payment timeframes for each client type?",
+   a:"Private clients: at time of invoice, or within 7 days at the latest (no accounts should be offered). Private entities/corporate: 30 days. Third party payers (DVA, Medicare, NDIS, insurers, plan managers): 60 days if not paid via an online portal.",
+   keywords:"payment timeframe deadline how long private third party entity corporate"},
+  {q:"A private client couldn't pay before leaving — what do I do?",
+   a:"Print and email the invoice via Nookal, offer bank transfer/phone payment, and place an \"OUTSTANDING DEBT\" alert note on their client profile so other team members see it if they call to cancel their next appointment. Follow up by phone, SMS and email within 48 hours.",
+   keywords:"client left without paying unpaid didn't pay leave"},
+  {q:"How do I know if a claim has been rejected?",
+   a:"Check the online payment portal, the Nookal HICAPS Report, or the Ageing Debts Report. Rejections should be actioned promptly — resubmit via HICAPS Digital/Tyro or email, since an unaddressed rejection can become unrecoverable debt.",
+   keywords:"rejected claim hicaps rejection resubmit"},
+
+  // --- Ageing debt follow-up ---
+  {q:"What actually changes at each ageing bucket (0–30, 31–60, 61–90, 90+)?",
+   a:"The urgency and formality increase. 0–30 is a standard reminder and 48-hour follow-up. 31–60 adds a phone call and clear follow-up notes. 61–90 uses a FINAL NOTICE email/call and an alert note. 90+ requires a recoverable/unrecoverable determination — if unrecoverable, it moves to the Doubtful Debt Write-Off process.",
+   keywords:"ageing bucket 0-30 31-60 61-90 90+ days overdue timeline"},
+  {q:"Which email template do I use?",
+   a:"Reminder template for 0–30 days, Further Reminder for 30–60 days, and Final Notice for 61–90 and 90+ days. Templates are in the full SOP — don't freelance the wording, especially for Final Notice, since it references potential referral to a debt collection agency.",
+   keywords:"email template reminder final notice wording"},
+  {q:"How often should I run the Ageing Debts Report, and how should I export it?",
+   a:"Run it regularly (weekly at minimum) from Reports → Ageing Debts. Export as XLSX rather than CSV if you plan to add notes — CSV does not retain anything you add after export.",
+   keywords:"ageing debts report export csv xlsx how often run"},
+  {q:"I can't identify a deposit in the bank account — what do I do?",
+   a:"Complete an Inter Clinic Transfer for money that doesn't relate to your clinic, or contact your Finance/Operations Business Partner to request the Inter Clinic Transfer form if you can't identify it at all.",
+   keywords:"unidentified deposit inter clinic transfer bank"},
+
+  // --- Doubtful debt write-offs ---
+  {q:"When does a debt qualify as \"doubtful\"?",
+   a:"Generally 90–120+ days overdue from an unresponsive debtor despite repeated recovery attempts, where a debt collection agency is unlikely to recover it, or where a third party payer has formally rejected the claim. The clinic must also be profitable for a write-off to proceed.",
+   keywords:"doubtful debt criteria qualify write off"},
+  {q:"What's the approval process and thresholds for doubtful debt write-offs?",
+   a:"Clinic identifies doubtful debtors from the 90+ day column, saves the file as \"Doubtful Debtors – COST CODE – MONTH\" (XLSX), and sends it to the Clinic Partner/Team Leader for approval, then to the Regional Partner. Under $1,000 → Regional Partner can approve. $1,000–$5,000 → General Manager approval required. Over $5,000 → CFO approval required.",
+   keywords:"approval threshold write off amount who approves cfo general manager regional partner limit"},
+  {q:"How often are write-offs submitted?",
+   a:"Monthly. Don't let doubtful debtors stockpile — timely submission keeps each clinic's reported debt position accurate and avoids P&L surprises.",
+   keywords:"how often write off submitted monthly frequency"},
+  {q:"How do I actually process the write-off in Nookal once approved?",
+   a:"Open the invoice → click the item → Adjust Total → enter $0 → Reason \"WRITE OFF\" → Save.",
+   keywords:"process write off nookal steps adjust total"},
+
+  // --- Nookal invoice adjustments ---
+  {q:"What's the lock period for invoice adjustments?",
+   a:"One business day. Invoices from Friday, Saturday or Sunday can't be backdated or voided after 11:59pm the following Monday. After the lock period, some fields remain editable (payer, case, addressee, code, description, total, payment method) but you can't add items, void, backdate, or change the provider — these all affect revenue reporting for a prior period.",
+   keywords:"lock period invoice adjustment backdate void editable"},
+  {q:"I need a change that isn't possible through the standard adjustment options — what now?",
+   a:"Submit a ticket via ASSIST (Category: Nookal – Invoice Amendments) with the invoice number and details of the change required. If it involves backdating revenue outside the period, Finance will review to confirm clinic and clinician billing incentives stay correct.",
+   keywords:"assist ticket invoice amendment cannot adjust locked"},
+
+  // --- Roles & ownership ---
+  {q:"Whose KPI is debt management, really?",
+   a:"It sits at the clinic level with the Practice Manager and Clinic Partner/Team Leader — it's an explicit performance indicator, and mismanagement flows straight through to revenue reporting and P&L.",
+   keywords:"whose responsibility kpi ownership accountable"},
+  {q:"What if the primary person responsible for reconciliation or debt follow-up goes on leave?",
+   a:"The role must be delegated to someone else for that period — accounts receivable and debt follow-up can't pause just because one person is away.",
+   keywords:"leave delegate responsibility away holiday"},
+
+  // --- Daily reconciliation (cheat sheet content) ---
+  {q:"What are the 5 steps of daily bank reconciliation?",
+   a:"1) Download bank transactions from the clinic account. 2) Match HICAPS/EFTPOS + other deposits to remittances → receipt in Nookal (date = day receipted, not day received). 3) Make invoice adjustments per the Nookal Invoice Adjustments Guide if needed. 4) Complete an Inter Clinic Transfer for any deposits that aren't yours. 5) Run the Nookal Banking Report and confirm it matches the bank total.",
+   keywords:"daily bank reconciliation 5 steps how to reconcile"},
+  {q:"What date do I use when receipting a payment in Nookal?",
+   a:"Date it as the day you receipt it in Nookal — not the day it hit the bank. If there's a delay, add a note: \"received in bank [date]\".",
+   keywords:"receipt date payment when bank delay"},
+
+  // --- Training / site navigation ---
+  {q:"Which training module should I do?",
+   a:"All Admin Team → Module 1. Trained Admin/Practice Manager → Module 2. Clinic Partner, CCS or Clinic Manager → Module 3.",
+   keywords:"which module role training start"},
+];
+
+/* ============================================================
+   SITE ASSISTANT WIDGET
+   ============================================================
+   Floating chat bubble. Pure client-side keyword search against
+   SITE_KB (see knowledge-base.js) — no external calls, no API
+   key, nothing that can be stolen from view-source. If nothing
+   scores well enough, it points the person to ASSIST.
+   ============================================================ */
+
+(function(){
+  const STOPWORDS = new Set(['the','a','an','is','are','do','i','my','to','for','of','in','on','how','what','when','where','who','why','can','does','it','and','or','be','if','me','you','your','this','that','with','from','need','should']);
+
+  function tokenize(str){
+    return (str.toLowerCase().match(/[a-z0-9]+/g) || []).filter(w => !STOPWORDS.has(w) && w.length > 1);
+  }
+
+  function score(queryTokens, entry){
+    const haystack = tokenize(entry.q + ' ' + entry.a + ' ' + (entry.keywords||''));
+    const haystackSet = new Set(haystack);
+    let s = 0;
+    queryTokens.forEach(t=>{
+      if(haystackSet.has(t)) s += 2;
+      else if(haystack.some(h => h.includes(t) || t.includes(h))) s += 1;
+    });
+    return s;
+  }
+
+  function search(query){
+    const qTokens = tokenize(query);
+    if(qTokens.length === 0) return [];
+    const scored = SITE_KB.map(e => ({entry:e, s:score(qTokens, e)}))
+      .filter(x => x.s > 0)
+      .sort((a,b) => b.s - a.s);
+    return scored;
+  }
+
+  const ASSIST_MSG = `I couldn't find a confident answer to that in the SOP, FAQ, or training materials. Please open an <b>ASSIST ticket with Operations</b> (search "Debtor Management" or "Accounts Receivable" as the category) so the team can help directly.`;
+
+  const SUGGESTIONS = [
+    "Payment timeframes",
+    "Doubtful debt approval thresholds",
+    "5 steps of bank reconciliation",
+    "Invoice adjustment lock period",
+  ];
+
+  function injectStyles(){
+    const css = `
+    .sa-bubble{position:fixed;bottom:22px;right:22px;width:58px;height:58px;border-radius:50%;background:#1B4F8C;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);z-index:9999;border:none;transition:transform .15s;}
+    .sa-bubble:hover{transform:scale(1.06);}
+    .sa-panel{position:fixed;bottom:92px;right:22px;width:360px;max-width:calc(100vw - 32px);height:480px;max-height:calc(100vh - 130px);background:#fff;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.28);z-index:9999;display:none;flex-direction:column;overflow:hidden;font-family:'Segoe UI',Arial,sans-serif;}
+    .sa-panel.open{display:flex;}
+    .sa-head{background:#1B4F8C;color:#fff;padding:14px 16px;border-left:5px solid #028090;}
+    .sa-head h4{font-size:.92rem;margin-bottom:2px;}
+    .sa-head p{font-size:.72rem;color:#A8D4DF;}
+    .sa-close{position:absolute;top:12px;right:14px;background:none;border:none;color:#A8D4DF;font-size:1.1rem;cursor:pointer;}
+    .sa-body{flex:1;overflow-y:auto;padding:14px 16px;background:#F4F6F9;}
+    .sa-msg{margin-bottom:14px;}
+    .sa-msg.user{text-align:right;}
+    .sa-bubble-text{display:inline-block;max-width:85%;padding:9px 13px;border-radius:10px;font-size:.85rem;line-height:1.5;text-align:left;}
+    .sa-msg.user .sa-bubble-text{background:#1B4F8C;color:#fff;border-bottom-right-radius:2px;}
+    .sa-msg.bot .sa-bubble-text{background:#fff;color:#1C2B3A;border:1px solid #D6E0EB;border-bottom-left-radius:2px;}
+    .sa-msg.bot .sa-src{font-size:.68rem;color:#028090;font-weight:700;margin-top:6px;}
+    .sa-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px;background:#F4F6F9;}
+    .sa-chip{background:#fff;border:1px solid #D6E0EB;color:#1B4F8C;font-size:.72rem;font-weight:700;padding:6px 10px;border-radius:14px;cursor:pointer;}
+    .sa-chip:hover{background:#EEF2F8;}
+    .sa-inputrow{display:flex;gap:8px;padding:12px;border-top:1px solid #D6E0EB;background:#fff;}
+    .sa-inputrow input{flex:1;border:1px solid #D6E0EB;border-radius:20px;padding:9px 14px;font-size:.85rem;outline:none;}
+    .sa-inputrow input:focus{border-color:#028090;}
+    .sa-send{background:#028090;color:#fff;border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:.95rem;flex-shrink:0;}
+    .sa-send:hover{background:#026e75;}
+    `;
+    const style = document.createElement('style');
+    style.textContent = css;
+    document.head.appendChild(style);
+  }
+
+  function buildWidget(){
+    const bubble = document.createElement('button');
+    bubble.className = 'sa-bubble';
+    bubble.innerHTML = '💬';
+    bubble.title = 'Ask about debtor management';
+
+    const panel = document.createElement('div');
+    panel.className = 'sa-panel';
+    panel.innerHTML = `
+      <div class="sa-head">
+        <button class="sa-close" id="saClose">✕</button>
+        <h4>Debtor Management Assistant</h4>
+        <p>Answers from the SOP, FAQ &amp; training content</p>
+      </div>
+      <div class="sa-body" id="saBody"></div>
+      <div class="sa-chips" id="saChips"></div>
+      <div class="sa-inputrow">
+        <input type="text" id="saInput" placeholder="Ask a question…">
+        <button class="sa-send" id="saSend">➤</button>
+      </div>
+    `;
+    document.body.appendChild(bubble);
+    document.body.appendChild(panel);
+
+    const body = panel.querySelector('#saBody');
+    const chips = panel.querySelector('#saChips');
+    const input = panel.querySelector('#saInput');
+
+    function addMsg(text, who, source){
+      const div = document.createElement('div');
+      div.className = 'sa-msg ' + who;
+      div.innerHTML = `<div class="sa-bubble-text">${text}${source ? `<div class="sa-src">📄 ${source}</div>` : ''}</div>`;
+      body.appendChild(div);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function greet(){
+      body.innerHTML = '';
+      addMsg("Hi! Ask me anything about the debtor management SOP, FAQ, or training content — payment timeframes, write-off thresholds, Nookal steps, that sort of thing.", 'bot');
+    }
+
+    function renderChips(){
+      chips.innerHTML = '';
+      SUGGESTIONS.forEach(s=>{
+        const c = document.createElement('button');
+        c.className = 'sa-chip';
+        c.textContent = s;
+        c.onclick = ()=> ask(s);
+        chips.appendChild(c);
+      });
+    }
+
+    function ask(query){
+      addMsg(query, 'user');
+      input.value = '';
+      const results = search(query);
+      if(results.length === 0 || results[0].s < 2){
+        addMsg(ASSIST_MSG, 'bot');
+      } else {
+        const top = results[0].entry;
+        addMsg(top.a, 'bot', top.q);
+      }
+    }
+
+    panel.querySelector('#saClose').onclick = ()=> panel.classList.remove('open');
+    panel.querySelector('#saSend').onclick = ()=>{ if(input.value.trim()) ask(input.value.trim()); };
+    input.addEventListener('keydown', e=>{ if(e.key==='Enter' && input.value.trim()) ask(input.value.trim()); });
+
+    bubble.onclick = ()=>{
+      panel.classList.toggle('open');
+      if(panel.classList.contains('open') && body.innerHTML === ''){
+        greet();
+        renderChips();
+        input.focus();
+      }
+    };
+  }
+
+  function init(){
+    injectStyles();
+    buildWidget();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+</script>
+</body>
+</html>
