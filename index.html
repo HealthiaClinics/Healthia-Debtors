@@ -1,3 +1,125 @@
+
+Claude is responding
+anything else you would suggest to go on this site
+
+
+Synthesized tiered feature suggestions, prioritizing feasibility and user choice
+Synthesized tiered feature suggestions, prioritizing feasibility and user choice
+Good instinct to keep iterating. Here's what I'd genuinely add, roughly in order of value for the effort:
+
+Quick wins — low effort, real value
+
+Email template library — the FAQ says "use the correct template" for Reminder/Further Reminder/Final Notice, but there's nowhere to actually copy them from. A small "Templates" section with ready-to-paste text would close that gap immediately.
+A short glossary — HICAPS, ASSIST, RP, GM, CCS, NDIS, MFD... this network runs on acronyms, and anyone new will be lost. One page, alphabetical, done.
+"Last updated" date on the SOP/pages — builds trust that what people are reading is current, costs nothing to add.
+Print-friendly cheat sheets — a simple print stylesheet so a Practice Manager can print their role's page and pin it at the front desk, without it printing the navy header and nav bar too.
+Worth the extra effort
+
+An interactive "what do I do?" tool — type in how many days overdue an invoice is, it tells you the bucket and the exact action, pulling from what's already in the cheat sheets. Turns a lookup into something people actually enjoy using.
+A visible changelog — "Updated 12 July: clarified write-off thresholds" style entries. Encourages people to check back rather than assuming it's static.
+Feedback on FAQ/assistant answers — a small "Was this helpful?" that logs into a sheet, so you can see what people are actually struggling to find answers to and expand the knowledge base accordingly.
+Later, if this grows
+
+A real completion dashboard on the site itself (rather than just the Excel export), once you're comfortable with a bit more backend
+Onboarding email sequence for the launch — happy to draft this whenever you're ready to send it
+Want me to start on any of these?
+
+Q: Which should I build first?
+A: Email template library
+
+
+Architected branded template library with copy functionality
+Architected branded template library with copy functionality
+Let me pull the actual template wording from the SOP so this matches what's official, not something I invent.
+
+
+Architected templated email library with copy functionality and design integration
+Architected templated email library with copy functionality and design integration
+Good choice — that's the clearest content gap right now. Let me pull the exact wording from your SOP (not invent new copy) and build a clean templates page with one-click copy.
+
+
+Orchestrated layout restructuring and documentation updates
+Orchestrated layout restructuring and documentation updates
+Now let's link it from the hub and update the CSS grid to gracefully handle a third card:
+
+
+Edited 2 files
+Edited 2 files
+Let's rename the tab label since it now covers three resources, not two:
+
+
+Evaluated naming consistency and navigation enhancement opportunities
+Evaluated naming consistency and navigation enhancement opportunities
+Let's add small cross-navigation links between FAQ, Cheat Sheets, and Templates so people can hop between them without going back to the hub each time:
+
+
+Ran 2 commands
+Ran 2 commands
+Now let's add the site assistant to templates.html too, since every other page has it:
+
+
+Devised unified script to synchronize template documentation across multiple files
+Devised unified script to synchronize template documentation across multiple files
+Let's update the assistant's knowledge base everywhere so it points people to the new page when relevant:
+
+
+Ran 2 commands
+Ran 2 commands
+Now let's do a full verification pass — copy button functionality, cross-links, assistant on the new page, and no regressions elsewhere.
+
+
+Full verification of templates page, cross-links, copy button, and hub integration
+Full verification of templates page, cross-links, copy button, and hub integration
+Everything works — copy button confirmed functional, cross-links correct on all 3 pages, hub shows all 3 resource cards, no console errors. Let's take a visual look before shipping.
+
+
+Ran 2 commands, viewed 2 files
+Ran 2 commands, viewed 2 files
+Looks clean and consistent with the rest of the site. Now let's update the README and repackage.
+
+
+Edited a file, ran a command, read a file
+Edited a file, ran a command, read a file
+New file: templates.html — the three email templates, pulled word-for-word from your SOP (I fixed one obvious typo — "debt or credit card" → "debit or credit card"). Each has a one-click Copy button that grabs the whole message ready to paste into Nookal, with [Patient's Name] and [Clinic Name] highlighted so people don't miss filling them in. The Final Notice template also has a callout reminding people it's the step before doubtful debt write-off.
+
+Also wired in:
+
+A "Reference" tab on the hub now shows all three: FAQ, Cheat Sheets, and Email Templates
+Small cross-links between all three reference pages so people can jump between them directly
+The assistant now points to this page when someone asks which template to use
+Assistant widget added to the new page too, for consistency
+Since this is a new file (not replacing an existing one), add it the same way as the module gate pages: Add file → Create new file → name it exactly templates.html → paste in the content → Commit. Then replace your existing index.html, faq.html, and cheatsheet.html with the updated versions (all three got small edits to link to the new page).
+
+Want me to move on to the glossary next, or something else?
+
+
+Healthia debtors training site
+ZIP 
+the index file doesnt have any of the changes
+
+
+Thought for 3s
+Thought for 3s
+Let's get this sorted directly — here's the complete, current index.html content to paste in.
+
+
+Getting current index.html full content
+Getting current index.html full content
+That's the complete file — copy everything from <!DOCTYPE html> at the top down to </html> at the bottom, and use it to fully replace your current index.html on GitHub (click the file → pencil icon → select all → delete → paste → Commit).
+
+Once that's committed, you should see on the homepage:
+
+The "Reference" tab (instead of "FAQ & Cheat Sheet")
+Three cards in that tab: FAQ, Cheat Sheets, Email Templates
+Softer hero wording ("One process, made clear.")
+Don't forget faq.html, cheatsheet.html, and the new templates.html also need to go up for the cross-links between them to work — let me know once index.html is confirmed working and I'll re-send those too if needed.
+
+send me just the index
+
+
+Getting index.html content
+Getting index.html content
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,400 +167,21 @@
 
   .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-size:.88rem;font-weight:700;padding:13px 22px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;transition:.15s;}
   .btn-primary{background:var(--brand);color:#fff;}
-  .btn-primary:hover{background:var(--brand-deep);transform:translateY(-1px);}
-  .btn-outline{background:#fff;color:var(--brand);border:1.5px solid var(--line);}
-  .btn-outline:hover{border-color:var(--brand);}
+  .btn-primary:hover{background:var(--bran
 
-  .sequence{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;margin-bottom:52px;}
-  .seq-step{padding:22px 20px;position:relative;border-right:1px solid var(--line);}
-  .seq-step:last-child{border-right:none;}
-  .seq-num{font-family:var(--display);font-size:.72rem;font-weight:700;color:var(--teal);letter-spacing:.06em;margin-bottom:8px;}
-  .seq-title{font-family:var(--display);font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:4px;}
-  .seq-desc{font-size:.78rem;color:var(--grey);line-height:1.5;}
-  @media(max-width:760px){.sequence{grid-template-columns:1fr;}.seq-step{border-right:none;border-bottom:1px solid var(--line);}.seq-step:last-child{border-bottom:none;}}
 
-  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
-  @media(max-width:700px){.info-grid{grid-template-columns:1fr;}}
-  .info-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px 24px;}
-  .info-card h4{font-family:var(--display);font-size:.78rem;color:var(--teal);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;}
-  .info-card ul{list-style:none;}
-  .info-card li{font-size:.88rem;line-height:1.6;margin-bottom:9px;padding-left:18px;position:relative;color:var(--ink);}
-  .info-card li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--gold);}
 
-  .resource-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:8px;}
-  .resource-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;}
-  .resource-card .rc-icon{width:38px;height:38px;border-radius:9px;background:var(--paper);display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:var(--brand);}
-  .resource-card h3{font-family:var(--display);font-size:1.02rem;color:var(--ink);margin-bottom:6px;}
-  .resource-card p{font-size:.86rem;color:var(--grey);margin-bottom:16px;line-height:1.55;}
 
-  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;}
-  .role-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;text-decoration:none;color:inherit;display:block;transition:.18s;position:relative;overflow:hidden;}
-  .role-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--teal);}
-  .role-card.locked::before{background:var(--gold);}
-  .role-card:hover{box-shadow:0 12px 28px rgba(15,35,64,.1);transform:translateY(-3px);}
-  .role-card .rc-icon{width:42px;height:42px;border-radius:10px;background:var(--paper);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--brand);}
-  .role-card.locked .rc-icon{color:#8a5a00;}
-  .role-card h3{font-family:var(--display);font-size:1rem;color:var(--ink);margin-bottom:8px;}
-  .role-card p{font-size:.84rem;color:var(--grey);line-height:1.55;margin-bottom:16px;}
-  .rc-tag{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:700;letter-spacing:.04em;padding:5px 10px;border-radius:20px;background:#EAF6F0;color:var(--green);}
-  .rc-tag.locked{background:#FDF3DC;color:#8a5a00;}
 
-  footer{border-top:1px solid var(--line);margin-top:24px;padding:26px 0 40px;color:var(--grey);font-size:.78rem;line-height:1.7;}
-  footer b{color:var(--ink);}
-</style>
-</head>
-<body>
-<header class="site-header">
-  <div class="site-header-inner">
-    <div class="brand-row">
-      <span class="brand-mark">healthia<span>.</span></span>
-      <span class="brand-sub">Debtor Management Program</span>
-    </div>
-  </div>
-  <div class="top-tabs" id="topTabs"></div>
-</header>
-<main>
+Claude is AI and can make mistakes. Please double-check responses.
+Healthia debtors training site · ZIP
+Healthia debtors training site
+ZIP
+No preview available
 
-  <div class="tabpanel active" id="tab-overview">
-    <div class="hero">
-      <div class="eyebrow">Accounts Receivable &amp; Debt Management</div>
-      <h1>One process, made clear.</h1>
-      <p class="lede">Everything you need for accounts receivable in one place — the policy, quick references, and a short training module for your role.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="#" onclick="showTab('training');return false;">Start your training</a>
-        <a class="btn btn-outline" href="sop/AR-Debt-Management-SOP.pdf" target="_blank">Read the SOP</a>
-      </div>
-    </div>
 
-    <div class="sequence">
-      <div class="seq-step"><div class="seq-num">01</div><div class="seq-title">Read the SOP</div><div class="seq-desc">The full policy, there whenever you need to check something.</div></div>
-      <div class="seq-step"><div class="seq-num">02</div><div class="seq-title">Find your role</div><div class="seq-desc">Admin, PM, or Clinic Partner — a module made for what you do.</div></div>
-      <div class="seq-step"><div class="seq-num">03</div><div class="seq-title">Complete training</div><div class="seq-desc">About 15–20 minutes, at your own pace.</div></div>
-      <div class="seq-step"><div class="seq-num">04</div><div class="seq-title">You're all set</div><div class="seq-desc">Your completion is saved automatically — nothing else to do.</div></div>
-    </div>
 
-    <div class="info-grid">
-      <div class="info-card">
-        <h4>Why this matters</h4>
-        <ul>
-          <li>Debt management is a key performance measure for every clinic</li>
-          <li>Every role has a specific, defined responsibility in the process</li>
-          <li>Consistent process = faster recovery and fewer doubtful debts</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h4>Where to start</h4>
-        <ul>
-          <li>New to this? Start with the <b>SOP</b> tab for the full policy</li>
-          <li>Need a quick answer? Check the <b>FAQ</b> tab, or ask the assistant</li>
-          <li>Ready to train? Go to <b>Training</b> and find your role</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="resource-row">
-      <div class="resource-card">
-        <div class="rc-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h10a1 1 0 0 1 1 1v17l-3-2-2 2-2-2-2 2-3-2V4a1 1 0 0 1 1-1Z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
-        </div>
-        <h3>Full SOP</h3>
-        <p>The complete Accounts Receivable &amp; Debt Management Policy and Procedure document.</p>
-        <a class="btn btn-outline" href="sop/AR-Debt-Management-SOP.pdf" target="_blank">Open SOP (PDF)</a>
-      </div>
-      <div class="resource-card">
-        <div class="rc-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 21V9M19 21V5"/></svg>
-        </div>
-        <h3>Start Training</h3>
-        <p>Role-based training modules with quizzes — takes 15–20 minutes per module.</p>
-        <a class="btn btn-primary" href="#" onclick="showTab('training');return false;">Go to Training</a>
-      </div>
-    </div>
-  </div>
 
-  <div class="tabpanel" id="tab-sop">
-    <div class="hero" style="padding-top:44px;">
-      <div class="eyebrow">Source of truth</div>
-      <h1 style="font-size:clamp(1.6rem,3vw,2.2rem);max-width:none;">Accounts Receivable &amp; Debt Management SOP</h1>
-      <p class="lede">The full policy and procedure document. The cheat sheets and FAQ are quick references drawn from it — this is the original.</p>
-    </div>
-    <div class="resource-card" style="max-width:440px;">
-      <div class="rc-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h10a1 1 0 0 1 1 1v17l-3-2-2 2-2-2-2 2-3-2V4a1 1 0 0 1 1-1Z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
-      </div>
-      <h3>Full SOP (PDF)</h3>
-      <p>Opens in a new tab using your browser's own PDF viewer — more reliable across different computers than viewing it embedded on the page.</p>
-      <a class="btn btn-primary" href="sop/AR-Debt-Management-SOP.pdf" target="_blank">Open SOP (PDF)</a>
-    </div>
-  </div>
 
-  <div class="tabpanel" id="tab-faq">
-    <div class="hero" style="padding-top:44px;">
-      <div class="eyebrow">Quick reference</div>
-      <h1 style="font-size:clamp(1.6rem,3vw,2.2rem);max-width:none;">Reference</h1>
-      <p class="lede">Pick whichever fits what you need right now — a specific question answered, your whole role condensed to one page, or wording ready to send.</p>
-    </div>
-    <div class="resource-row">
-      <div class="resource-card">
-        <div class="rc-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2 1.8-2 3.5" stroke-linecap="round"/><circle cx="12" cy="17" r=".6" fill="currentColor" stroke="none"/></svg>
-        </div>
-        <h3>FAQ</h3>
-        <p>Common questions across payments, ageing debt follow-up, doubtful debt write-offs, and Nookal invoice adjustments.</p>
-        <a class="btn btn-primary" href="faq.html">Open FAQ</a>
-      </div>
-      <div class="resource-card">
-        <div class="rc-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-        </div>
-        <h3>Cheat Sheets</h3>
-        <p>One-page quick reference per role — All Admin, Trained Admin/PM, and Clinic Partner/CCS/CM.</p>
-        <a class="btn btn-primary" href="cheatsheet.html">Open Cheat Sheets</a>
-      </div>
-      <div class="resource-card">
-        <div class="rc-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 5 8 7 8-7"/></svg>
-        </div>
-        <h3>Email Templates</h3>
-        <p>Ready-to-copy wording for Reminder, Further Reminder, and Final Notice emails.</p>
-        <a class="btn btn-primary" href="templates.html">Open Templates</a>
-      </div>
-    </div>
-  </div>
 
-  <div class="tabpanel" id="tab-training">
-    <div class="hero" style="padding-top:44px;">
-      <div class="eyebrow">15–20 minutes per module</div>
-      <h1 style="font-size:clamp(1.6rem,3vw,2.2rem);max-width:none;">Find your role</h1>
-      <p class="lede">Each module ends with a short knowledge check and a completion record. Start with the one that matches what you do day to day.</p>
-    </div>
-    <div class="card-grid">
-      <a class="role-card" href="modules/module1.html">
-        <div class="rc-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h10a1 1 0 0 1 1 1v17l-3-2-2 2-2-2-2 2-3-2V4a1 1 0 0 1 1-1Z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>
-        </div>
-        <h3>Module 1 — All Admin Team</h3>
-        <p>Payment expectations, invoicing, daily bank reconciliation, and 0–30 day follow-up.</p>
-        <span class="rc-tag">Open to all</span>
-      </a>
-      <a class="role-card locked" href="modules/module2-gate.html">
-        <div class="rc-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 21V9M19 21V5"/></svg>
-        </div>
-        <h3>Module 2 — Trained Admin &amp; PM</h3>
-        <p>The full ageing debt follow-up framework across every bucket, 0–90+ days.</p>
-        <span class="rc-tag locked">🔒 Access code required</span>
-      </a>
-      <a class="role-card locked" href="modules/module3-gate.html">
-        <div class="rc-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21V10l8-6 8 6v11"/><path d="M9 21v-6h6v6"/></svg>
-        </div>
-        <h3>Module 3 — Clinic Partner / CCS / CM</h3>
-        <p>Governance, KPI ownership, and your role in the doubtful debt approval chain.</p>
-        <span class="rc-tag locked">🔒 Access code required</span>
-      </a>
-    </div>
-  </div>
-
-  <footer>
-    <b>Healthia Debtor Management Program</b> — internal reference and training. Something not covered here? Ask the assistant in the corner, or open an ASSIST ticket with Operations.
-  </footer>
-
-</main>
-<script>
-const tabs = [
-  {id:'overview', label:'Overview'},
-  {id:'sop', label:'SOP'},
-  {id:'faq', label:'Reference'},
-  {id:'training', label:'Training Modules'},
-];
-const tabsEl = document.getElementById('topTabs');
-tabs.forEach((t,i)=>{
-  const btn = document.createElement('button');
-  btn.className = 'top-tab' + (i===0?' active':'');
-  btn.textContent = t.label;
-  btn.onclick = ()=> showTab(t.id);
-  tabsEl.appendChild(btn);
-});
-function showTab(id){
-  document.querySelectorAll('.top-tab').forEach((b,i)=> b.classList.toggle('active', tabs[i].id===id));
-  document.querySelectorAll('.tabpanel').forEach(p=> p.classList.toggle('active', p.id === 'tab-'+id));
-  window.scrollTo(0,0);
-}
-if(location.hash){
-  const id = location.hash.replace('#','');
-  if(tabs.some(t=>t.id===id)) showTab(id);
-}
-</script>
-<script>
-const SITE_KB = [
-  {q:"What are the payment timeframes for each client type?",
-   a:"Private clients: at time of invoice, or within 7 days at the latest (no accounts should be offered). Private entities/corporate: 30 days. Third party payers (DVA, Medicare, NDIS, insurers, plan managers): 60 days if not paid via an online portal.",
-   keywords:"payment timeframe deadline how long private third party entity corporate"},
-  {q:"A private client couldn't pay before leaving — what do I do?",
-   a:"Print and email the invoice via Nookal, offer bank transfer/phone payment, and place an \"OUTSTANDING DEBT\" alert note on their client profile so other team members see it if they call to cancel their next appointment. Follow up by phone, SMS and email within 48 hours.",
-   keywords:"client left without paying unpaid didn't pay leave"},
-  {q:"How do I know if a claim has been rejected?",
-   a:"Check the online payment portal, the Nookal HICAPS Report, or the Ageing Debts Report. Rejections should be actioned promptly — resubmit via HICAPS Digital/Tyro or email, since an unaddressed rejection can become unrecoverable debt.",
-   keywords:"rejected claim hicaps rejection resubmit"},
-  {q:"What actually changes at each ageing bucket (0–30, 31–60, 61–90, 90+)?",
-   a:"The urgency and formality increase. 0–30 is a standard reminder and 48-hour follow-up. 31–60 adds a phone call and clear follow-up notes. 61–90 uses a FINAL NOTICE email/call and an alert note. 90+ requires a recoverable/unrecoverable determination — if unrecoverable, it moves to the Doubtful Debt Write-Off process.",
-   keywords:"ageing bucket 0-30 31-60 61-90 90+ days overdue timeline"},
-  {q:"Which email template do I use?",
-   a:"Reminder template for 0–30 days, Further Reminder for 30–60 days, and Final Notice for 61–90 and 90+ days. Ready-to-copy wording for all three is on the Email Templates page — don't freelance it, especially the Final Notice, since it references potential referral to a debt collection agency.",
-   keywords:"email template reminder final notice wording"},
-  {q:"How often should I run the Ageing Debts Report, and how should I export it?",
-   a:"Run it regularly (weekly at minimum) from Reports → Ageing Debts. Export as XLSX rather than CSV if you plan to add notes — CSV does not retain anything you add after export.",
-   keywords:"ageing debts report export csv xlsx how often run"},
-  {q:"I can't identify a deposit in the bank account — what do I do?",
-   a:"Complete an Inter Clinic Transfer for money that doesn't relate to your clinic, or contact your Finance/Operations Business Partner to request the Inter Clinic Transfer form if you can't identify it at all.",
-   keywords:"unidentified deposit inter clinic transfer bank"},
-  {q:"When does a debt qualify as \"doubtful\"?",
-   a:"Generally 90–120+ days overdue from an unresponsive debtor despite repeated recovery attempts, where a debt collection agency is unlikely to recover it, or where a third party payer has formally rejected the claim. The clinic must also be profitable for a write-off to proceed.",
-   keywords:"doubtful debt criteria qualify write off"},
-  {q:"What's the approval process and thresholds for doubtful debt write-offs?",
-   a:"Clinic identifies doubtful debtors from the 90+ day column, saves the file as \"Doubtful Debtors – COST CODE – MONTH\" (XLSX), and sends it to the Clinic Partner/Team Leader for approval, then to the Regional Partner. Under $1,000 → Regional Partner can approve. $1,000–$5,000 → General Manager approval required. Over $5,000 → CFO approval required.",
-   keywords:"approval threshold write off amount who approves cfo general manager regional partner limit"},
-  {q:"How often are write-offs submitted?",
-   a:"Monthly. Don't let doubtful debtors stockpile — timely submission keeps each clinic's reported debt position accurate and avoids P&L surprises.",
-   keywords:"how often write off submitted monthly frequency"},
-  {q:"How do I actually process the write-off in Nookal once approved?",
-   a:"Open the invoice → click the item → Adjust Total → enter $0 → Reason \"WRITE OFF\" → Save.",
-   keywords:"process write off nookal steps adjust total"},
-  {q:"What's the lock period for invoice adjustments?",
-   a:"One business day. Invoices from Friday, Saturday or Sunday can't be backdated or voided after 11:59pm the following Monday. After the lock period, some fields remain editable (payer, case, addressee, code, description, total, payment method) but you can't add items, void, backdate, or change the provider — these all affect revenue reporting for a prior period.",
-   keywords:"lock period invoice adjustment backdate void editable"},
-  {q:"I need a change that isn't possible through the standard adjustment options — what now?",
-   a:"Submit a ticket via ASSIST (Category: Nookal – Invoice Amendments) with the invoice number and details of the change required. If it involves backdating revenue outside the period, Finance will review to confirm clinic and clinician billing incentives stay correct.",
-   keywords:"assist ticket invoice amendment cannot adjust locked"},
-  {q:"Whose KPI is debt management, really?",
-   a:"It sits at the clinic level with the Practice Manager and Clinic Partner/Team Leader — it's an explicit performance indicator, and mismanagement flows straight through to revenue reporting and P&L.",
-   keywords:"whose responsibility kpi ownership accountable"},
-  {q:"What if the primary person responsible for reconciliation or debt follow-up goes on leave?",
-   a:"The role must be delegated to someone else for that period — accounts receivable and debt follow-up can't pause just because one person is away.",
-   keywords:"leave delegate responsibility away holiday"},
-  {q:"What are the 5 steps of daily bank reconciliation?",
-   a:"1) Download bank transactions from the clinic account. 2) Match HICAPS/EFTPOS + other deposits to remittances → receipt in Nookal (date = day receipted, not day received). 3) Make invoice adjustments per the Nookal Invoice Adjustments Guide if needed. 4) Complete an Inter Clinic Transfer for any deposits that aren't yours. 5) Run the Nookal Banking Report and confirm it matches the bank total.",
-   keywords:"daily bank reconciliation 5 steps how to reconcile"},
-  {q:"What date do I use when receipting a payment in Nookal?",
-   a:"Date it as the day you receipt it in Nookal — not the day it hit the bank. If there's a delay, add a note: \"received in bank [date]\".",
-   keywords:"receipt date payment when bank delay"},
-  {q:"Which training module should I do?",
-   a:"All Admin Team → Module 1. Trained Admin/Practice Manager → Module 2. Clinic Partner, CCS or Clinic Manager → Module 3.",
-   keywords:"which module role training start"},
-];
-
-(function(){
-  const STOPWORDS = new Set(['the','a','an','is','are','do','i','my','to','for','of','in','on','how','what','when','where','who','why','can','does','it','and','or','be','if','me','you','your','this','that','with','from','need','should']);
-  function tokenize(str){ return (str.toLowerCase().match(/[a-z0-9]+/g) || []).filter(w => !STOPWORDS.has(w) && w.length > 1); }
-  function score(queryTokens, entry){
-    const haystack = tokenize(entry.q + ' ' + entry.a + ' ' + (entry.keywords||''));
-    const haystackSet = new Set(haystack);
-    let s = 0;
-    queryTokens.forEach(t=>{ if(haystackSet.has(t)) s += 2; else if(haystack.some(h => h.includes(t) || t.includes(h))) s += 1; });
-    return s;
-  }
-  function search(query){
-    const qTokens = tokenize(query);
-    if(qTokens.length === 0) return [];
-    return SITE_KB.map(e => ({entry:e, s:score(qTokens, e)})).filter(x => x.s > 0).sort((a,b) => b.s - a.s);
-  }
-  const ASSIST_MSG = `I couldn't find a confident answer to that in the SOP, FAQ, or training materials. Please open an <b>ASSIST ticket with Operations</b> (search "Debtor Management" or "Accounts Receivable" as the category) so the team can help directly.`;
-  const SUGGESTIONS = ["Payment timeframes","Doubtful debt approval thresholds","5 steps of bank reconciliation","Invoice adjustment lock period"];
-
-  function injectStyles(){
-    const css = `
-    .sa-bubble{position:fixed;bottom:22px;right:22px;width:58px;height:58px;border-radius:50%;background:#1B4F8C;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);z-index:9999;border:none;transition:transform .15s;font-family:inherit;}
-    .sa-bubble:hover{transform:scale(1.06);}
-    .sa-panel{position:fixed;bottom:92px;right:22px;width:360px;max-width:calc(100vw - 32px);height:480px;max-height:calc(100vh - 130px);background:#fff;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.28);z-index:9999;display:none;flex-direction:column;overflow:hidden;font-family:'Inter',sans-serif;}
-    .sa-panel.open{display:flex;}
-    .sa-head{background:#1B4F8C;color:#fff;padding:14px 16px;border-left:5px solid #028090;}
-    .sa-head h4{font-size:.92rem;margin-bottom:2px;font-family:'Sora',sans-serif;}
-    .sa-head p{font-size:.72rem;color:#A8D4DF;}
-    .sa-close{position:absolute;top:12px;right:14px;background:none;border:none;color:#A8D4DF;font-size:1.1rem;cursor:pointer;}
-    .sa-body{flex:1;overflow-y:auto;padding:14px 16px;background:#F4F6F9;}
-    .sa-msg{margin-bottom:14px;}
-    .sa-msg.user{text-align:right;}
-    .sa-bubble-text{display:inline-block;max-width:85%;padding:9px 13px;border-radius:10px;font-size:.85rem;line-height:1.5;text-align:left;}
-    .sa-msg.user .sa-bubble-text{background:#1B4F8C;color:#fff;border-bottom-right-radius:2px;}
-    .sa-msg.bot .sa-bubble-text{background:#fff;color:#1C2B3A;border:1px solid #D6E0EB;border-bottom-left-radius:2px;}
-    .sa-msg.bot .sa-src{font-size:.68rem;color:#028090;font-weight:700;margin-top:6px;}
-    .sa-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px;background:#F4F6F9;}
-    .sa-chip{background:#fff;border:1px solid #D6E0EB;color:#1B4F8C;font-size:.72rem;font-weight:700;padding:6px 10px;border-radius:14px;cursor:pointer;font-family:inherit;}
-    .sa-chip:hover{background:#EEF2F8;}
-    .sa-inputrow{display:flex;gap:8px;padding:12px;border-top:1px solid #D6E0EB;background:#fff;}
-    .sa-inputrow input{flex:1;border:1px solid #D6E0EB;border-radius:20px;padding:9px 14px;font-size:.85rem;outline:none;font-family:inherit;}
-    .sa-inputrow input:focus{border-color:#028090;}
-    .sa-send{background:#028090;color:#fff;border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:.95rem;flex-shrink:0;}
-    .sa-send:hover{background:#026e75;}
-    `;
-    const style = document.createElement('style');
-    style.textContent = css;
-    document.head.appendChild(style);
-  }
-  function buildWidget(){
-    const bubble = document.createElement('button');
-    bubble.className = 'sa-bubble';
-    bubble.innerHTML = '💬';
-    bubble.title = 'Ask about debtor management';
-    const panel = document.createElement('div');
-    panel.className = 'sa-panel';
-    panel.innerHTML = `
-      <div class="sa-head">
-        <button class="sa-close" id="saClose">✕</button>
-        <h4>Debtor Management Assistant</h4>
-        <p>Answers from the SOP, FAQ &amp; training content</p>
-      </div>
-      <div class="sa-body" id="saBody"></div>
-      <div class="sa-chips" id="saChips"></div>
-      <div class="sa-inputrow">
-        <input type="text" id="saInput" placeholder="Ask a question…">
-        <button class="sa-send" id="saSend">➤</button>
-      </div>`;
-    document.body.appendChild(bubble);
-    document.body.appendChild(panel);
-    const body = panel.querySelector('#saBody');
-    const chips = panel.querySelector('#saChips');
-    const input = panel.querySelector('#saInput');
-    function addMsg(text, who, source){
-      const div = document.createElement('div');
-      div.className = 'sa-msg ' + who;
-      div.innerHTML = `<div class="sa-bubble-text">${text}${source ? `<div class="sa-src">📄 ${source}</div>` : ''}</div>`;
-      body.appendChild(div);
-      body.scrollTop = body.scrollHeight;
-    }
-    function greet(){
-      body.innerHTML = '';
-      addMsg("Hi! Ask me anything about the debtor management SOP, FAQ, or training content — payment timeframes, write-off thresholds, Nookal steps, that sort of thing.", 'bot');
-    }
-    function renderChips(){
-      chips.innerHTML = '';
-      SUGGESTIONS.forEach(s=>{
-        const c = document.createElement('button');
-        c.className = 'sa-chip';
-        c.textContent = s;
-        c.onclick = ()=> ask(s);
-        chips.appendChild(c);
-      });
-    }
-    function ask(query){
-      addMsg(query, 'user');
-      input.value = '';
-      const results = search(query);
-      if(results.length === 0 || results[0].s < 2){ addMsg(ASSIST_MSG, 'bot'); }
-      else { const top = results[0].entry; addMsg(top.a, 'bot', top.q); }
-    }
-    panel.querySelector('#saClose').onclick = ()=> panel.classList.remove('open');
-    panel.querySelector('#saSend').onclick = ()=>{ if(input.value.trim()) ask(input.value.trim()); };
-    input.addEventListener('keydown', e=>{ if(e.key==='Enter' && input.value.trim()) ask(input.value.trim()); });
-    bubble.onclick = ()=>{
-      panel.classList.toggle('open');
-      if(panel.classList.contains('open') && body.innerHTML === ''){ greet(); renderChips(); input.focus(); }
-    };
-  }
-  function init(){ injectStyles(); buildWidget(); }
-  if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', init); } else { init(); }
-})();
-</script>
-</body>
-</html>
