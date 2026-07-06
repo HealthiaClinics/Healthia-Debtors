@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debtor Management | Healthia</title>
+<style>
+  :root{--navy:#1B4F8C;--teal:#028090;--gold:#E8A800;--purple:#7D3C98;--red:#C0392B;--green:#1E8449;--dark:#1C2B3A;--grey:#6B7C8E;--lgrey:#D6E0EB;--offwh:#F4F6F9;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:var(--offwh);color:var(--dark);}
+  .site-header{background:var(--navy);color:#fff;box-shadow:0 2px 12px rgba(0,0,0,.25);}
+  .site-header-inner{display:flex;align-items:center;padding:16px 28px;border-left:6px solid var(--teal);}
+  .site-header-inner h1{font-size:1.15rem;font-weight:700;}
+  .site-header-inner span{font-size:.82rem;color:#A8D4DF;display:block;margin-top:2px;}
+  .top-tabs{background:#162e52;display:flex;overflow-x:auto;padding:0 28px;}
+  .top-tab{background:none;border:none;color:#7fa8c9;font-size:.85rem;font-weight:700;padding:14px 20px;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;}
+  .top-tab:hover{color:#fff;}
+  .top-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+  main{max-width:980px;margin:0 auto;padding:32px 20px 80px;}
+  .tabpanel{display:none;}
+  .tabpanel.active{display:block;animation:fadeIn .3s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+  h2.page-title{color:var(--navy);font-size:1.6rem;margin-bottom:8px;}
+  .sub{color:var(--grey);font-size:.92rem;line-height:1.6;margin-bottom:24px;max-width:720px;}
+
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+  .card{background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.07);padding:20px;border-top:5px solid var(--teal);text-decoration:none;color:inherit;display:block;transition:.15s;}
+  .card:hover{box-shadow:0 6px 18px rgba(0,0,0,.13);transform:translateY(-2px);}
+  .card.purple{border-top-color:var(--purple);}
+  .card .ci{font-size:1.6rem;margin-bottom:8px;}
+  .card h3{font-size:1rem;color:var(--dark);margin-bottom:6px;}
+  .card p{font-size:.82rem;color:var(--grey);line-height:1.5;}
+  .card .tag{display:inline-block;margin-top:10px;font-size:.68rem;font-weight:800;letter-spacing:.05em;padding:3px 9px;border-radius:10px;background:var(--offwh);color:var(--teal);}
+  .card .tag.locked{background:#f3e8f7;color:var(--purple);}
+
+  .resource-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;}
+  .resource-card{flex:1;min-width:240px;background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.07);padding:20px;border-left:5px solid var(--navy);}
+  .resource-card h3{color:var(--navy);font-size:1rem;margin-bottom:6px;}
+  .resource-card p{font-size:.85rem;color:var(--grey);margin-bottom:12px;line-height:1.5;}
+  .btn-link{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-size:.82rem;font-weight:700;padding:9px 16px;border-radius:6px;}
+  .btn-link:hover{background:#153d70;}
+  .btn-link.secondary{background:var(--offwh);color:var(--navy);border:1px solid var(--lgrey);}
+
+  .overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;}
+  @media(max-width:700px){.overview-grid{grid-template-columns:1fr;}}
+  .stat-card{background:#fff;border-radius:10px;padding:18px 20px;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+  .stat-card h4{font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px;}
+  .stat-card ul{padding-left:18px;}
+  .stat-card li{font-size:.86rem;margin-bottom:5px;line-height:1.5;}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header-inner">
+    <div><h1>Healthia Accounts Receivable &amp; Debt Management</h1><span>SOP · FAQ · Cheat Sheets · Role-Based Training</span></div>
+  </div>
+  <div class="top-tabs" id="topTabs"></div>
+</header>
+<main>
+
+  <div class="tabpanel active" id="tab-overview">
+    <h2 class="page-title">Welcome</h2>
+    <p class="sub">This is the home for everything related to debtor management across the network — the policy, quick references, and role-based training. Pick a tab above, or jump straight into your training module below.</p>
+    <div class="overview-grid">
+      <div class="stat-card">
+        <h4>Why this matters</h4>
+        <ul>
+          <li>Debt management is a key performance measure for every clinic</li>
+          <li>Every role has a specific, defined responsibility in the process</li>
+          <li>Consistent process = faster recovery and fewer doubtful debts</li>
+        </ul>
+      </div>
+      <div class="stat-card">
+        <h4>Where to start</h4>
+        <ul>
+          <li>New to this? Start with the <b>SOP</b> tab for the full policy</li>
+          <li>Need a quick answer? Check the <b>FAQ</b> tab</li>
+          <li>Ready to train? Go to the <b>Training</b> tab and find your role</li>
+        </ul>
+      </div>
+    </div>
+    <div class="resource-row">
+      <div class="resource-card">
+        <h3>📋 Full SOP</h3>
+        <p>The complete Accounts Receivable &amp; Debt Management Policy and Procedure document.</p>
+        <a class="btn-link" href="sop/AR-Debt-Management-SOP.pdf" target="_blank">Open SOP (PDF)</a>
+      </div>
+      <div class="resource-card">
+        <h3>🎓 Start Training</h3>
+        <p>Role-based training modules with quizzes — takes 15–20 minutes per module.</p>
+        <a class="btn-link" href="#" onclick="showTab('training');return false;">Go to Training</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabpanel" id="tab-sop">
+    <h2 class="page-title">Accounts Receivable &amp; Debt Management SOP</h2>
+    <p class="sub">The full policy and procedure document. Use this as the source of truth — the cheat sheets and FAQ are quick references drawn from it.</p>
+    <div class="resource-card" style="max-width:420px;">
+      <h3>📋 Full SOP (PDF)</h3>
+      <p>Opens in a new tab using your browser's own PDF viewer — more reliable across different computers than viewing it embedded on the page.</p>
+      <a class="btn-link" href="sop/AR-Debt-Management-SOP.pdf" target="_blank">Open SOP (PDF)</a>
+    </div>
+  </div>
+
+  <div class="tabpanel" id="tab-faq">
+    <h2 class="page-title">FAQ &amp; Cheat Sheets</h2>
+    <p class="sub">Quick references for day-to-day use — pick whichever fits what you need right now.</p>
+    <div class="resource-row">
+      <div class="resource-card">
+        <h3>❓ FAQ</h3>
+        <p>Common questions across payments, ageing debt follow-up, doubtful debt write-offs, and Nookal invoice adjustments.</p>
+        <a class="btn-link" href="faq.html">Open FAQ</a>
+      </div>
+      <div class="resource-card">
+        <h3>📝 Cheat Sheets</h3>
+        <p>One-page quick reference per role — All Admin, Trained Admin/PM, and Clinic Partner/CCS/CM.</p>
+        <a class="btn-link" href="cheatsheet.html">Open Cheat Sheets</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabpanel" id="tab-training">
+    <h2 class="page-title">Role-Based Training</h2>
+    <p class="sub">Find your role below. Each module takes 15–20 minutes and ends with a short knowledge check and a completion record.</p>
+    <div class="card-grid">
+      <a class="card" href="modules/module1.html">
+        <div class="ci">🧾</div>
+        <h3>Module 1 — All Admin Team</h3>
+        <p>Payment expectations, invoicing, daily bank reconciliation, and 0–30 day follow-up.</p>
+        <span class="tag">OPEN TO ALL</span>
+      </a>
+      <a class="card purple" href="modules/module2-gate.html">
+        <div class="ci">📊</div>
+        <h3>Module 2 — Trained Admin &amp; PM</h3>
+        <p>The full ageing debt follow-up framework across every bucket, 0–90+ days.</p>
+        <span class="tag locked">🔒 ACCESS CODE REQUIRED</span>
+      </a>
+      <a class="card purple" href="modules/module3-gate.html">
+        <div class="ci">🏥</div>
+        <h3>Module 3 — Clinic Partner / CCS / CM</h3>
+        <p>Governance, KPI ownership, and your role in the doubtful debt approval chain.</p>
+        <span class="tag locked">🔒 ACCESS CODE REQUIRED</span>
+      </a>
+    </div>
+  </div>
+
+</main>
+<script>
+const tabs = [
+  {id:'overview', label:'Overview'},
+  {id:'sop', label:'SOP'},
+  {id:'faq', label:'FAQ & Cheat Sheet'},
+  {id:'training', label:'Training Modules'},
+];
+const tabsEl = document.getElementById('topTabs');
+tabs.forEach((t,i)=>{
+  const btn = document.createElement('button');
+  btn.className = 'top-tab' + (i===0?' active':'');
+  btn.textContent = t.label;
+  btn.onclick = ()=> showTab(t.id);
+  tabsEl.appendChild(btn);
+});
+function showTab(id){
+  document.querySelectorAll('.top-tab').forEach((b,i)=> b.classList.toggle('active', tabs[i].id===id));
+  document.querySelectorAll('.tabpanel').forEach(p=> p.classList.toggle('active', p.id === 'tab-'+id));
+  window.scrollTo(0,0);
+}
+// deep-link support: index.html#training
+if(location.hash){
+  const id = location.hash.replace('#','');
+  if(tabs.some(t=>t.id===id)) showTab(id);
+}
+</script>
+<script src="assets/knowledge-base.js"></script>
+<script src="assets/site-assistant.js"></script>
+</body>
+</html>
