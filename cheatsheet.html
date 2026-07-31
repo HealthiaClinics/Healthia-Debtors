@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cheat Sheets | Debtor Management Training</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F2340; --brand:#1B4F8C; --brand-deep:#0F3866; --brand-light:#2E6BB8;
+    --teal:#028090; --gold:#E8A800; --red:#C0392B; --green:#1E8449;
+    --grey:#5B6B82; --line:#E1E8F0; --paper:#F6F8FB;
+    --display:'Sora',ui-sans-serif,system-ui,sans-serif;
+    --body:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:var(--body);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .site-header{background:linear-gradient(120deg,var(--brand-deep) 0%,var(--brand) 60%,var(--brand-light) 100%);color:#fff;}
+  .site-header-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;padding:20px 28px 0;gap:16px;}
+  .brand-mark{font-family:var(--display);font-weight:800;font-size:1.1rem;}
+  .brand-mark span{color:var(--gold);}
+  .brand-logo{height:26px;display:block;}
+  .back-link{color:#B9D3EC;font-size:.82rem;text-decoration:none;font-weight:700;margin-left:auto;}
+  .back-link:hover{color:#fff;}
+  .cross-link{color:#B9D3EC;font-size:.8rem;font-weight:600;text-decoration:none;}
+  .cross-link:hover{color:#fff;}
+
+  .role-tabs{max-width:920px;margin:0 auto;display:flex;overflow-x:auto;padding:16px 28px 0;gap:4px;}
+  .role-tab{background:none;border:none;color:#AEC9E8;font-family:var(--body);font-size:.84rem;font-weight:600;padding:10px 14px 12px;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;}
+  .role-tab:hover{color:#fff;}
+  .role-tab.active{color:#fff;border-bottom-color:var(--gold);}
+  main{max-width:920px;margin:0 auto;padding:36px 20px 90px;}
+  .panel{display:none;}
+  .panel.active{display:block;animation:fadeIn .3s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;}
+  h2.rt{font-family:var(--display);font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:24px;}
+  h3.sub{font-family:var(--display);color:var(--brand);font-size:1rem;font-weight:700;margin:26px 0 12px;padding-left:12px;border-left:4px solid var(--teal);}
+  ul{padding-left:22px;margin-bottom:8px;}
+  li{font-size:.9rem;margin-bottom:7px;line-height:1.55;color:var(--ink);}
+  table{width:100%;border-collapse:collapse;margin:12px 0 8px;font-size:.86rem;}
+  th{background:var(--brand);color:#fff;text-align:left;padding:10px 12px;font-weight:600;}
+  td{padding:10px 12px;border-bottom:1px solid var(--line);}
+  tr:nth-child(even) td{background:#fff;}
+  tr:nth-child(odd) td{background:var(--paper);}
+  .note{border-left:4px solid;border-radius:8px;padding:14px 18px;margin-top:18px;font-size:.88rem;}
+  .note.red{background:#FDF2F0;border-color:var(--red);}
+  .note.navy{background:#EEF2F8;border-color:var(--brand);}
+  .note.gold{background:#FDF8E6;border-color:var(--gold);}
+  .note b{display:block;margin-bottom:5px;font-size:.72rem;letter-spacing:.06em;font-family:var(--display);}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header-inner">
+    <img class="brand-logo" src="https://healthia.com.au/wp-content/uploads/2025/12/Healthia_white_with-tagline-scaled.png" alt="Healthia" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'brand-mark',innerHTML:'healthia<span>.</span>'}))">
+    <a class="cross-link" href="faq.html">FAQ</a>
+    <a class="cross-link" href="templates.html">Email Templates</a>
+    <a class="back-link" href="index.html">← Training Hub</a>
+  </div>
+  <div class="role-tabs" id="roleTabs"></div>
+</header>
+<main id="panels"></main>
+<script>
+const roles = [
+  {id:'admin', label:'All Admin Team', html:`
+    <div class="eyebrow">Quick Reference</div>
+    <h2 class="rt">All Admin Team</h2>
+    <h3 class="sub">Payment at Time of Service</h3>
+    <p style="font-size:.9rem;line-height:1.6;margin-bottom:10px;">There's no fixed day-based payment term in the current Procedure for each client type. Private clients are expected to pay at time of service where possible — if they can't, offer bank transfer, phone payment, or in-person within a few days.</p>
+    <table><tr><th>Bucket</th><th>What Happens</th></tr>
+      <tr><td>0–30 days</td><td>Follow up within 48hrs of appointment if unpaid</td></tr>
+      <tr><td>31–60 days</td><td>Phone call + email follow-up</td></tr>
+      <tr><td>61–90 days</td><td>Final Notice</td></tr>
+      <tr><td>90+ days</td><td>Determine recoverable vs doubtful debt</td></tr>
+    </table>
+    <h3 class="sub">Daily Bank Reconciliation — 5 Steps</h3>
+    <ul>
+      <li>1. Download bank transactions from clinic account</li>
+      <li>2. Match HICAPS/EFTPOS + other deposits to remittances → receipt in Nookal (date = day receipted, not day received)</li>
+      <li>3. Make invoice adjustments per the Nookal Invoice Adjustments Guide if needed</li>
+      <li>4. Complete an Inter Clinic Transfer for any deposits that aren't yours</li>
+      <li>5. Run the Nookal Banking Report and confirm it matches the bank total</li>
+    </ul>
+    <h3 class="sub">0–30 Day Follow-Up (Your Responsibility)</h3>
+    <ul>
+      <li>Check for rejected claims first — resubmit via HICAPS Digital/Tyro or email</li>
+      <li>Client can't pay before leaving? Print + email the invoice, and offer: 1) bank transfer (details on invoice), 2) phone payment, or 3) in-person within a few days</li>
+      <li>Still unpaid when client leaves → add alert note "OUTSTANDING DEBT" to their profile</li>
+      <li>Follow up by phone, SMS + email within 48 hours — ideally before their next appointment, not after</li>
+    </ul>
+    <div class="note red"><b>REMEMBER</b>Never let the same client build up multiple unpaid services — this is how small debts become large, unrecoverable ones.</div>
+  `},
+  {id:'pm', label:'Trained Admin & PM', html:`
+    <div class="eyebrow">Quick Reference</div>
+    <h2 class="rt">Trained Admin &amp; Practice Manager</h2>
+    <h3 class="sub">Your Core Responsibility</h3>
+    <ul>
+      <li><b>Monitor and follow up ageing debts across all buckets</b> to recover money owed to the clinic</li>
+      <li>Report on debt management with recommendations to Clinic Partner(s)/Team Leaders and Regional Partners regularly</li>
+    </ul>
+    <h3 class="sub">Ageing Debt Actions By Bucket</h3>
+    <table><tr><th>Bucket</th><th>Private Clients</th><th>Third Party Payers</th></tr>
+      <tr><td>0–30 days</td><td>Call/SMS/email within 48hrs of appt; alert note "OUTSTANDING DEBT" if unpaid on leaving</td><td>Check rejections via portal; resubmit via HICAPS Digital/Tyro or email</td></tr>
+      <tr><td>31–60 days</td><td>Call to discuss + take payment; private note on invoice; alert note "OUTSTANDING DEBT"</td><td>Call payer, confirm invoice received + payment timeframe; email follow-up; private note</td></tr>
+      <tr><td>61–90 days</td><td>Final call/email/SMS; private note; alert note "OUTSTANDING DEBT"</td><td>Call payer — ask reason for delay; flag that client treatment may be affected; alert note "OUTSTANDING THIRD PARTY DEBT"</td></tr>
+      <tr><td>90+ days</td><td>Determine recoverable vs not — if recoverable, repeat 61–90 actions</td><td>If unrecoverable → escalate with Clinic Partner &amp; Regional Partner, then Doubtful Debt Write-Off process</td></tr>
+    </table>
+    <h3 class="sub">Nookal Ageing Debts Report</h3>
+    <ul>
+      <li>Reports tab → Ageing Debts. Use "Expanded details" to see itemised invoices</li>
+      <li>Export as XLSX (not CSV) if you plan to add notes — CSV doesn't retain them</li>
+      <li>Click the invoice reference in Nookal to process, check portal status, or re-email</li>
+    </ul>
+    <div class="note navy"><b>EMAIL TEMPLATES</b>Use the correct template for the bucket: Reminder (0–30), Further Reminder (30–60), Final Notice (61–90 &amp; 90+). See the full SOP for wording.</div>
+  `},
+  {id:'cp', label:'Clinic Partner / CCS / CM', html:`
+    <div class="eyebrow">Quick Reference</div>
+    <h2 class="rt">Clinic Partner, CCS &amp; Clinic Manager</h2>
+    <h3 class="sub">Your Core Responsibility</h3>
+    <ul>
+      <li><b>Debt management is a key performance measure for your clinic</b></li>
+      <li>Monitor ageing debts and recommendations from your Admin/PM team</li>
+      <li>Escalate unrecoverable debt to your Regional Partner</li>
+    </ul>
+    <h3 class="sub">Doubtful Debt Write-Off — Your Role</h3>
+    <ul>
+      <li>Criteria: 90–120+ days overdue, unresponsive despite repeated attempts, unlikely to recover via a debt collection agency (if one is engaged), or a Third Party has determined the invoice doesn't meet their claim requirements and won't accept payment</li>
+      <li>Clinic must be profitable for a write-off to proceed</li>
+      <li>You are the FIRST approval step — review the "Doubtful Debtors – COST CODE – MONTH" file before it goes to your Regional Partner</li>
+    </ul>
+    <h3 class="sub">Approval Thresholds (for awareness)</h3>
+    <table><tr><th>Total Doubtful Debt Value</th><th>Who Approves</th></tr>
+      <tr><td>Under $1,000</td><td>Regional Partner</td></tr>
+      <tr><td>$1,000 – $5,000</td><td>General Manager</td></tr>
+      <tr><td>Over $5,000</td><td>CFO</td></tr>
+    </table>
+    <div class="note gold"><b>MONTHLY CADENCE</b>Doubtful Debt Write-Offs are submitted monthly. Don't let them stockpile — timely reporting keeps your clinic's true debt position accurate.</div>
+  `},
+];
+
+const tabsEl = document.getElementById('roleTabs');
+const panelsEl = document.getElementById('panels');
+roles.forEach((r,i)=>{
+  const btn = document.createElement('button');
+  btn.className = 'role-tab' + (i===0?' active':'');
+  btn.textContent = r.label;
+  btn.onclick = ()=> showRole(r.id);
+  tabsEl.appendChild(btn);
+  const panel = document.createElement('div');
+  panel.className = 'panel' + (i===0?' active':'');
+  panel.id = 'panel-'+r.id;
+  panel.innerHTML = r.html;
+  panelsEl.appendChild(panel);
+});
+function showRole(id){
+  document.querySelectorAll('.role-tab').forEach((b,i)=> b.classList.toggle('active', roles[i].id===id));
+  document.querySelectorAll('.panel').forEach(p=> p.classList.toggle('active', p.id === 'panel-'+id));
+}
+</script>
+<script>
+const SITE_KB = [
+  {q:"A client hasn't paid — what do I do generally?",
+   a:"Start with how many days overdue it is. 0–30 days: call, SMS and email within 48 hours. 31–60 days: a phone call plus a clear follow-up note. 61–90 days: a Final Notice email/call plus an alert note. 90+ days: decide if it's recoverable — if not, it moves into the Doubtful Debt Write-Off process. See the Cheat Sheets for your role's exact actions at each stage.",
+   keywords:"client hasnt paid hasn't paid what should i do unpaid follow up general"},
+  {q:"A client says they've already paid — how do I check?",
+   a:"Check the Nookal Banking Report and your bank reconciliation for a matching payment first. If you can't find it, ask the client for proof (a receipt, bank reference, or confirmation email) and pass it on so the payment can be allocated against the invoice. Don't remove it from the ageing report until it's actually reconciled.",
+   keywords:"already paid dispute client says paid proof receipt disagree incorrect"},
+  {q:"What is HICAPS?",
+   a:"HICAPS (and HICAPS Digital/Tyro) is the terminal system used to process private health fund and Medicare claims at the point of service. If a HICAPS claim is rejected, check the portal or resubmit via HICAPS Digital/Tyro or email.",
+   keywords:"hicaps what is meaning terminal claims device"},
+  {q:"What is ASSIST?",
+   a:"ASSIST is the internal ticketing system for requests Operations needs to action — for example, invoice amendments that fall outside the standard adjustment window. Submit a ticket with the relevant category (e.g. \"Operations → Nookal: Invoice Amendments\") and the details needed.",
+   keywords:"assist what is ticketing system meaning ticket"},
+  {q:"What do RP, GM, CCS and CM stand for?",
+   a:"RP = Regional Partner. GM = General Manager. CCS = Clinical Case Supervisor. CM = Clinic Manager. These are the roles referenced throughout the SOP and the approval chain.",
+   keywords:"rp gm ccs cm acronym stand for mean abbreviation short"},
+  {q:"What are the payment timeframes for each client type?",a:"There's no fixed payment term stated in the current Procedure for each client type. Private clients are expected to pay at time of service where possible (offered bank transfer, phone, or in-person payment if they can't); anyone unpaid is followed up on the ageing bucket schedule — 0–30, 31–60, 61–90, then 90+ days. Check with your Regional Partner for specific commercial terms on corporate or third-party accounts.",keywords:"payment timeframe deadline how long private third party entity corporate"},
+  {q:"A private client couldn't pay before leaving — what do I do?",a:"Print and email the invoice via Nookal, offer bank transfer/phone payment, and place an \"OUTSTANDING DEBT\" alert note on their client profile so other team members see it if they call to cancel their next appointment. Follow up by phone, SMS and email within 48 hours.",keywords:"client left without paying unpaid didn't pay leave paid before"},
+  {q:"How do I know if a claim has been rejected?",a:"Check the online payment portal, the Nookal HICAPS Report, or the Ageing Debts Report. Rejections should be actioned promptly — resubmit via HICAPS Digital/Tyro or email, since an unaddressed rejection can become unrecoverable debt.",keywords:"rejected claim hicaps rejection resubmit"},
+  {q:"What actually changes at each ageing bucket (0–30, 31–60, 61–90, 90+)?",a:"The urgency and formality increase. 0–30 is a standard reminder and 48-hour follow-up. 31–60 adds a phone call and clear follow-up notes. 61–90 uses a FINAL NOTICE email/call and an alert note. 90+ requires a recoverable/unrecoverable determination — if unrecoverable, it moves to the Doubtful Debt Write-Off process.",keywords:"ageing bucket 0-30 31-60 61-90 90+ days overdue timeline"},
+  {q:"Which email template do I use?",a:"Reminder template for 0–30 days, Further Reminder for 30–60 days, and Final Notice for 61–90 and 90+ days. Ready-to-copy wording for all three is on the Email Templates page — don't freelance it, especially the Final Notice, since it references potential referral to a debt collection agency.",keywords:"email template reminder final notice wording"},
+  {q:"How often should I run the Ageing Debts Report, and how should I export it?",a:"Run it regularly (weekly at minimum) from Reports → Ageing Debts. Keep the date filter set to \"10 Years\" so the data stays accurate and current. Export as XLSX rather than CSV if you plan to add notes — CSV does not retain anything you add after export.",keywords:"ageing debts report export csv xlsx how often run"},
+  {q:"I can't identify a deposit in the bank account — what do I do?",a:"Complete an Inter Clinic Transfer for money that doesn't relate to your clinic, or contact your Finance/Operations Business Partner to request the Inter Clinic Transfer form if you can't identify it at all.",keywords:"unidentified deposit inter clinic transfer bank"},
+  {q:"When does a debt qualify as \"doubtful\"?",a:"Generally 90–120+ days overdue from an unresponsive debtor despite repeated recovery attempts, where a debt collection agency is unlikely to recover it (if one is currently engaged), or where a third party payer has determined the invoice doesn't meet their claim/service agreement requirements and won't accept payment. The clinic must also be profitable for a write-off to proceed.",keywords:"doubtful debt criteria qualify write off"},
+  {q:"What's the approval process and thresholds for doubtful debt write-offs?",a:"Clinic identifies doubtful debtors from the 90+ day column, saves the file as \"Doubtful Debtors – COST CODE – MONTH\" (XLSX), and sends it to the Clinic Partner/Team Leader for approval, then to the Regional Partner. Under $1,000 → Regional Partner can approve. $1,000–$5,000 → General Manager approval required. Over $5,000 → CFO approval required.",keywords:"approval threshold write off amount who approves cfo general manager regional partner limit"},
+  {q:"How often are write-offs submitted?",a:"Monthly. Don't let doubtful debtors stockpile — timely submission keeps each clinic's reported debt position accurate and avoids P&L surprises.",keywords:"how often write off submitted monthly frequency"},
+  {q:"How do I actually process the write-off in Nookal once approved?",a:"Open the invoice → click the item → click Payment → click Pay for Item → enter the debt amount into the BAD DEBT WRITE OFF payment field → click Add Payment.",keywords:"process write off nookal steps adjust total"},
+  {q:"What's the lock period for invoice adjustments?",a:"One business day. Invoices from Friday, Saturday or Sunday can't be backdated or voided after 11:59pm the following Monday. After the lock period, some fields remain editable (payer, case, addressee, code, description, total, payment method) but you can't add items, void, backdate, or change the provider — these all affect revenue reporting for a prior period.",keywords:"lock period invoice adjustment backdate void editable"},
+  {q:"I need a change that isn't possible through the standard adjustment options — what now?",a:"Submit a ticket via ASSIST (Category: Operations → Nookal: Invoice Amendments) with the invoice number and details of the change required. If it involves backdating revenue outside the period, Finance will review to confirm clinic and clinician billing incentives stay correct.",keywords:"assist ticket invoice amendment cannot adjust locked"},
+  {q:"Whose KPI is debt management, really?",a:"It sits at the clinic level with the Practice Manager and Clinic Partner/Team Leader — it's an explicit performance indicator, and mismanagement flows straight through to revenue reporting and P&L.",keywords:"whose responsibility kpi ownership accountable"},
+  {q:"What if the primary person responsible for reconciliation or debt follow-up goes on leave?",a:"The role must be delegated to someone else for that period — accounts receivable and debt follow-up can't pause just because one person is away.",keywords:"leave delegate responsibility away holiday next week cover backup who does"},
+  {q:"What are the 5 steps of daily bank reconciliation?",a:"1) Download bank transactions from the clinic account. 2) Match HICAPS/EFTPOS + other deposits to remittances → receipt in Nookal (date = day receipted, not day received). 3) Make invoice adjustments per the Nookal Invoice Adjustments Guide if needed. 4) Complete an Inter Clinic Transfer for any deposits that aren't yours. 5) Run the Nookal Banking Report and confirm it matches the bank total.",keywords:"daily bank reconciliation 5 steps how to reconcile"},
+  {q:"What date do I use when receipting a payment in Nookal?",a:"Date it as the day you receipt it in Nookal — not the day it hit the bank. If there's a delay, add a note: \"received in bank [date]\".",keywords:"receipt date payment when bank delay"},
+  {q:"Which training module should I do?",a:"All Admin Team → Module 1. Trained Admin/Practice Manager → Module 2. Clinic Partner, CCS or Clinic Manager → Module 3.",keywords:"which module role training start"},
+];
+(function(){
+  const STOPWORDS = new Set(['the','a','an','is','are','do','i','my','to','for','of','in','on','how','what','when','where','who','why','can','does','it','and','or','be','if','me','you','your','this','that','with','from','need','should']);
+  function tokenize(str){ return (str.toLowerCase().match(/[a-z0-9]+/g) || []).filter(w => !STOPWORDS.has(w) && w.length > 1); }
+  function score(queryTokens, entry){
+    const haystack = tokenize(entry.q + ' ' + entry.a + ' ' + (entry.keywords||''));
+    const haystackSet = new Set(haystack);
+    let s = 0;
+    queryTokens.forEach(t=>{
+      if(haystackSet.has(t)) s += 2;
+      else if(t.length >= 4 && haystack.some(h => h.length >= 4 && (h.includes(t) || t.includes(h)))) s += 1;
+    });
+    return s;
+  }
+  function search(query){
+    const qTokens = tokenize(query);
+    if(qTokens.length === 0) return [];
+    return SITE_KB.map(e => ({entry:e, s:score(qTokens, e)})).filter(x => x.s > 0).sort((a,b) => b.s - a.s);
+  }
+  const ASSIST_MSG = `I couldn't find a confident answer to that in the SOP, FAQ, or training materials. Please open an <b>ASSIST ticket with Operations</b> (search "Debtor Management" or "Accounts Receivable" as the category) so the team can help directly.`;
+  const SUGGESTIONS = ["Payment timeframes","Doubtful debt approval thresholds","5 steps of bank reconciliation","Invoice adjustment lock period"];
+  function injectStyles(){
+    const css = `
+    .sa-bubble{position:fixed;bottom:22px;right:22px;width:58px;height:58px;border-radius:50%;background:#1B4F8C;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);z-index:9999;border:none;transition:transform .15s;font-family:inherit;}
+    .sa-bubble:hover{transform:scale(1.06);}
+    .sa-panel{position:fixed;bottom:92px;right:22px;width:360px;max-width:calc(100vw - 32px);height:480px;max-height:calc(100vh - 130px);background:#fff;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.28);z-index:9999;display:none;flex-direction:column;overflow:hidden;font-family:'Inter',sans-serif;}
+    .sa-panel.open{display:flex;}
+    .sa-head{background:#1B4F8C;color:#fff;padding:14px 16px;border-left:5px solid #028090;}
+    .sa-head h4{font-size:.92rem;margin-bottom:2px;font-family:'Sora',sans-serif;}
+    .sa-head p{font-size:.72rem;color:#A8D4DF;}
+    .sa-close{position:absolute;top:12px;right:14px;background:none;border:none;color:#A8D4DF;font-size:1.1rem;cursor:pointer;}
+    .sa-body{flex:1;overflow-y:auto;padding:14px 16px;background:#F4F6F9;}
+    .sa-msg{margin-bottom:14px;}
+    .sa-msg.user{text-align:right;}
+    .sa-bubble-text{display:inline-block;max-width:85%;padding:9px 13px;border-radius:10px;font-size:.85rem;line-height:1.5;text-align:left;}
+    .sa-msg.user .sa-bubble-text{background:#1B4F8C;color:#fff;border-bottom-right-radius:2px;}
+    .sa-msg.bot .sa-bubble-text{background:#fff;color:#1C2B3A;border:1px solid #D6E0EB;border-bottom-left-radius:2px;}
+    .sa-msg.bot .sa-src{font-size:.68rem;color:#028090;font-weight:700;margin-top:6px;}
+    .sa-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px;background:#F4F6F9;}
+    .sa-chip{background:#fff;border:1px solid #D6E0EB;color:#1B4F8C;font-size:.72rem;font-weight:700;padding:6px 10px;border-radius:14px;cursor:pointer;font-family:inherit;}
+    .sa-chip:hover{background:#EEF2F8;}
+    .sa-inputrow{display:flex;gap:8px;padding:12px;border-top:1px solid #D6E0EB;background:#fff;}
+    .sa-inputrow input{flex:1;border:1px solid #D6E0EB;border-radius:20px;padding:9px 14px;font-size:.85rem;outline:none;font-family:inherit;}
+    .sa-inputrow input:focus{border-color:#028090;}
+    .sa-send{background:#028090;color:#fff;border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:.95rem;flex-shrink:0;}
+    .sa-send:hover{background:#026e75;}
+    `;
+    const style = document.createElement('style');
+    style.textContent = css;
+    document.head.appendChild(style);
+  }
+  function buildWidget(){
+    const bubble = document.createElement('button');
+    bubble.className = 'sa-bubble';
+    bubble.innerHTML = '💬';
+    bubble.title = 'Ask about debtor management';
+    const panel = document.createElement('div');
+    panel.className = 'sa-panel';
+    panel.innerHTML = `
+      <div class="sa-head">
+        <button class="sa-close" id="saClose">✕</button>
+        <h4>Debtor Management Assistant</h4>
+        <p>Answers from the SOP, FAQ &amp; training content</p>
+      </div>
+      <div class="sa-body" id="saBody"></div>
+      <div class="sa-chips" id="saChips"></div>
+      <div class="sa-inputrow">
+        <input type="text" id="saInput" placeholder="Ask a question…">
+        <button class="sa-send" id="saSend">➤</button>
+      </div>`;
+    document.body.appendChild(bubble);
+    document.body.appendChild(panel);
+    const body = panel.querySelector('#saBody');
+    const chips = panel.querySelector('#saChips');
+    const input = panel.querySelector('#saInput');
+    function addMsg(text, who, source){
+      const div = document.createElement('div');
+      div.className = 'sa-msg ' + who;
+      div.innerHTML = `<div class="sa-bubble-text">${text}${source ? `<div class="sa-src">📄 ${source}</div>` : ''}</div>`;
+      body.appendChild(div);
+      body.scrollTop = body.scrollHeight;
+    }
+    function greet(){
+      body.innerHTML = '';
+      addMsg("Hi! Ask me anything about the debtor management SOP, FAQ, or training content — payment timeframes, write-off thresholds, Nookal steps, that sort of thing.", 'bot');
+    }
+    function renderChips(){
+      chips.innerHTML = '';
+      SUGGESTIONS.forEach(s=>{
+        const c = document.createElement('button');
+        c.className = 'sa-chip';
+        c.textContent = s;
+        c.onclick = ()=> ask(s);
+        chips.appendChild(c);
+      });
+    }
+    function ask(query){
+      addMsg(query, 'user');
+      input.value = '';
+      const results = search(query);
+      if(results.length === 0 || results[0].s < 2){ addMsg(ASSIST_MSG, 'bot'); }
+      else { const top = results[0].entry; addMsg(top.a, 'bot', top.q); }
+    }
+    panel.querySelector('#saClose').onclick = ()=> panel.classList.remove('open');
+    panel.querySelector('#saSend').onclick = ()=>{ if(input.value.trim()) ask(input.value.trim()); };
+    input.addEventListener('keydown', e=>{ if(e.key==='Enter' && input.value.trim()) ask(input.value.trim()); });
+    bubble.onclick = ()=>{
+      panel.classList.toggle('open');
+      if(panel.classList.contains('open') && body.innerHTML === ''){ greet(); renderChips(); input.focus(); }
+    };
+  }
+  function init(){ injectStyles(); buildWidget(); }
+  if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', init); } else { init(); }
+})();
+</script>
+</body>
+</html>
